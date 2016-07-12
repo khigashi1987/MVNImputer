@@ -1,5 +1,5 @@
 # MVNImputer
-Imputation of matrix by EM algorithm
+Matrix imputation by EM algorithm
 
 Assumption: Data are generated from multivariate normal distribution, but some values are missing.
 
