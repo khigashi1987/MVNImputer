@@ -42,7 +42,7 @@ def MVNImputer(df, epsilon=1e-5, maxiter=100):
         # M step
         new_mu = np.mean(temp_data, axis=0)
         new_sigma = np.cov(temp_data.T)
-        new_lik = -0.5 * n_obs * (np.log(2 * np.pi) + np.log(np.linalg.det(new_sigma)))
+        new_lik = -0.5 * n_obs * (n_var * np.log(2 * np.pi) + np.log(np.linalg.det(new_sigma)))
         for i in range(n_obs):
             new_lik -= 0.5 * np.dot((temp_data[i, :] - new_mu), np.dot(np.linalg.inv(new_sigma), (temp_data[i, :] - new_mu)[:, np.newaxis]))
         print 'ITER =',n_iter,'\tLog likelihood =',new_lik
